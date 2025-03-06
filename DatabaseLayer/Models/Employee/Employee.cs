@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace DatabaseLayer.Models
+namespace DatabaseLayer.Models.Employee
 {
     public class Employee
     {

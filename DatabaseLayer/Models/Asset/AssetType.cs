@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DatabaseLayer.Models
+namespace DatabaseLayer.Models.Asset
 {
     public class AssetType
     {

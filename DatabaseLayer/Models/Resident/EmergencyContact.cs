@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DatabaseLayer.Models
+namespace DatabaseLayer.Models.Resident
 {
     public class EmergencyContact
     {

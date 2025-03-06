@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace DatabaseLayer.Models
+namespace DatabaseLayer.Models.Service
 {
     public class ServiceType
     {
