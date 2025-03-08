@@ -1,6 +1,6 @@
 namespace DatabaseLayer.Models;
 
-public class Event
+public class EventSchedule
 {
     public int EventID { get; set; }
     public int EmployeeID { get; set; }
@@ -8,6 +8,5 @@ public class Event
     public DateTime StartDateTime { get; set; }
     public DateTime EndDateTime { get; set; }
     public bool IsRepeated { get; set; }
-    public string RepeatPattern { get; set; }
-  
+    public string? RepeatPattern { get; set; }
 }

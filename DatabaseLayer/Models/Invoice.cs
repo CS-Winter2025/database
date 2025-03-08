@@ -7,5 +7,4 @@ public class Invoice
     public DateTime Date { get; set; }
     public decimal AmountDue { get; set; }
     public decimal AmountPaid { get; set; }
-
 }
