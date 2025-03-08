@@ -3,22 +3,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace DatabaseLayer.Models;
 
 
-public class Employee
+public class Employee : Person
 {
-    public int? ManagerId { get; set; }  
-    public Employee Manager { get; set; } 
+    public int EmployeeId { get; set; } // Primary Key
 
-    public string JobTitle { get; set; } 
+    public int? ManagerId { get; set; }  // Foreign Key (Stored in DB)
+    public Employee Manager { get; set; }  // Navigation Property (Not stored, for C# usage)
+
+    public ICollection<Employee> Subordinates { get; set; } = new List<Employee>();  // Navigation Property (Not stored)
+
+    public string JobTitle { get; set; }
     public string EmploymentType { get; set; }
     public decimal PayRate { get; set; }
 
     public List<int> Availability { get; set; } = new List<int>();
-    public List<int> HoursWorked { get; set; } = new List<int>(); 
-    public List<string> Certifications { get; set; } = new List<string>(); 
-    public string DetailsJson { get; set; } 
-    
-    
-    [ForeignKey("OrganizationId")]
-    public int OrganizationId { get; set; }
-    public Organization Organization { get; set; }
+    public List<int> HoursWorked { get; set; } = new List<int>();
+    public List<string> Certifications { get; set; } = new List<string>();
+
+    public int OrganizationId { get; set; }  // Foreign Key (Stored in DB)
+    public Organization Organization { get; set; }  // Navigation Property (Not stored)
+
+    // Navigation property for Services associated with this employee
+    public List<Service> Services { get; set; } = new List<Service>();
 }

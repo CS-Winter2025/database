@@ -1,9 +1,11 @@
 namespace DatabaseLayer.Models;
 
-public class Asset
+public class Asset : RootObj
 {
-    public int AssetID { get; set; }
-    public string Type { get; set; } 
-    public int? ResidentID { get; set; }
-    public string DetailsJson { get; set; } 
+    public int AssetID { get; set; } // Primary Key
+
+    public string Type { get; set; }
+
+    public int? ResidentID { get; set; }  // Foreign Key (Stored in DB)
+    public Resident Resident { get; set; }  // Navigation Property (Not stored, for C# usage)
 }
