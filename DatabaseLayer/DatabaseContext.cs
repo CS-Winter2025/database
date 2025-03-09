@@ -19,90 +19,47 @@ namespace DatabaseLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Employee-Manager Self-Referencing Relationship
+            base.OnModelCreating(modelBuilder);
+
+            // Employee self-referencing relationship
             modelBuilder.Entity<Employee>()
                 .HasOne(e => e.Manager)
-                .WithMany()
+                .WithMany(e => e.Subordinates)
                 .HasForeignKey(e => e.ManagerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Employee Availability & HoursWorked: Storing as CSV
+            // Organization-Employee relationship
             modelBuilder.Entity<Employee>()
-                .Property(e => e.Availability)
-                .HasConversion(
-                    v => string.Join(",", v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
-                );
+                .HasOne(e => e.Organization)
+                .WithMany(o => o.Employees)
+                .HasForeignKey(e => e.OrganizationId);
 
+            // Employee-Service many-to-many relationship
             modelBuilder.Entity<Employee>()
-                .Property(e => e.HoursWorked)
-                .HasConversion(
-                    v => string.Join(",", v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToList()
-                );
+                .HasMany(e => e.Services)
+                .WithMany(s => s.Employees);
 
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.Certifications)
-                .HasConversion(
-                    v => string.Join(",", v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-                );
-
-            modelBuilder.Entity<Employee>()
-                .Property(e => e.DetailsJson)
-                .HasColumnType("json");
-
-            // Organization -> Employees Relationship
-            modelBuilder.Entity<Organization>()
-                .HasMany(o => o.Employees)
-                .WithOne(e => e.Organization)
-                .HasForeignKey(e => e.OrganizationId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // EventSchedule Employee & Service Relationship
+            // EventSchedule relationships
             modelBuilder.Entity<EventSchedule>()
-                .HasOne(e => e.Employee)
+                .HasOne(es => es.Employee)
                 .WithMany()
-                .HasForeignKey(e => e.EmployeeID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(es => es.EmployeeID);
 
             modelBuilder.Entity<EventSchedule>()
-                .HasOne(e => e.ServiceID)
+                .HasOne(es => es.Service)
                 .WithMany()
-                .HasForeignKey(e => e.ServiceID)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(es => es.ServiceID);
 
-            // Resident - Invoice Relationship
-            modelBuilder.Entity<Invoice>()
-                .HasOne(i => i.ResidentID)
-                .WithMany(r => r.Invoice)
-                .HasForeignKey(i => i.ResidentID)
-                .OnDelete(DeleteBehavior.Cascade);
-
-            // Service Configuration
-            modelBuilder.Entity<Service>()
-                .Property(s => s.EmployeeId)
-                .HasConversion(
-                    v => string.Join(",", v.Split(',', StringSplitOptions.RemoveEmptyEntries)), // CSV String
-                    v => v
-                );
-
-            modelBuilder.Entity<Service>()
-                .Property(s => s.Requirements)
-                .HasConversion(
-                    v => string.Join(",", v),
-                    v => v.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList()
-                );
-
-            // Asset Details in JSON
-            modelBuilder.Entity<Asset>()
-                .Property(a => a.DetailsJson)
-                .HasColumnType("json");
-
-            // Resident Details in JSON
+            // Resident-Service many-to-many relationship
             modelBuilder.Entity<Resident>()
-                .Property(r => r.DetailsJson)
-                .HasColumnType("json");
+                .HasMany(r => r.Services)
+                .WithMany();
+
+            // Invoice-Resident relationship
+            modelBuilder.Entity<Invoice>()
+                .HasOne(i => i.Resident)
+                .WithMany()
+                .HasForeignKey(i => i.ResidentID);
         }
     }
 }
