@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/stevenly/RiderProjects/database/DatabaseLayer/DatabaseLayer.csproj": {}
+    "/Users/ziqi/Documents/BcitStudy/Term4/ClientServer/Project/database/DatabaseLayer/DatabaseLayer.csproj": {}
   },
   "projects": {
-    "/Users/stevenly/RiderProjects/database/DatabaseLayer/DatabaseLayer.csproj": {
+    "/Users/ziqi/Documents/BcitStudy/Term4/ClientServer/Project/database/DatabaseLayer/DatabaseLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/stevenly/RiderProjects/database/DatabaseLayer/DatabaseLayer.csproj",
+        "projectUniqueName": "/Users/ziqi/Documents/BcitStudy/Term4/ClientServer/Project/database/DatabaseLayer/DatabaseLayer.csproj",
         "projectName": "DatabaseLayer",
-        "projectPath": "/Users/stevenly/RiderProjects/database/DatabaseLayer/DatabaseLayer.csproj",
-        "packagesPath": "/Users/stevenly/.nuget/packages/",
-        "outputPath": "/Users/stevenly/RiderProjects/database/DatabaseLayer/obj/",
+        "projectPath": "/Users/ziqi/Documents/BcitStudy/Term4/ClientServer/Project/database/DatabaseLayer/DatabaseLayer.csproj",
+        "packagesPath": "/Users/ziqi/.nuget/packages/",
+        "outputPath": "/Users/ziqi/Documents/BcitStudy/Term4/ClientServer/Project/database/DatabaseLayer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/stevenly/.nuget/NuGet/NuGet.Config"
+          "/Users/ziqi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -70,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.405/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
