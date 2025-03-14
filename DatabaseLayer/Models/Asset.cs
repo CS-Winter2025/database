@@ -8,5 +8,5 @@ public class Asset : RootObj
 
     // we are removing this field as this information should be captured in the history class
     // public int? ResidentID { get; set; }  // Foreign Key (Stored in DB)
-    public Resident Resident { get; set; }  // Navigation Property (Not stored, for C# usage)
+    // public Resident Resident { get; set; }  // Navigation Property (Not stored, for C# usage)
 }
