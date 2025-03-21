@@ -20,6 +20,7 @@ namespace DatabaseLayer
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            new DbInitializer(modelBuilder).Seed();
 
             // Employee self-referencing relationship
             modelBuilder.Entity<Employee>()
@@ -61,10 +62,87 @@ namespace DatabaseLayer
                 .WithMany()
                 .HasForeignKey(i => i.ResidentID);
 
+
+        }
+
+        public void SeedData()
+        {
+            // Ensure the database is created and all migrations are applied
+            this.Database.Migrate();
+
+            // Check if data already exists to avoid seeding duplicate entries
+            if (!this.Organizations.Any())
+            {
+                // Seed Organizations
+                this.Organizations.AddRange(
+                    new Organization { OrganizationId = 1 },
+                    new Organization { OrganizationId = 2 }
+                );
+            }
+
+            if (!this.Employees.Any())
+            {
+                // Seed Employees
+                this.Employees.AddRange(
+                    new Employee { EmployeeId = 1, Name = "Alice", JobTitle = "Manager", EmploymentType = "Full-Time", PayRate = 60000, OrganizationId = 1 },
+                    new Employee { EmployeeId = 2, Name = "Bob", JobTitle = "Developer", EmploymentType = "Full-Time", PayRate = 50000, OrganizationId = 1, ManagerId = 1 }
+                );
+            }
+
+            if (!this.Residents.Any())
+            {
+                // Seed Residents
+                this.Residents.AddRange(
+                    new Resident { ResidentId = 1, Name = "Charlie" },
+                    new Resident { ResidentId = 2, Name = "Diana" }
+                );
+            }
+
+            if (!this.Services.Any())
+            {
+                // Seed Services
+                this.Services.AddRange(
+                    new Service { ServiceID = 1, Type = "Cleaning", Rate = 50 },
+                    new Service { ServiceID = 2, Type = "Security", Rate = 100 }
+                );
+            }
+
+            if (!this.Invoices.Any())
+            {
+                // Seed Invoices
+                this.Invoices.AddRange(
+                    new Invoice { InvoiceID = 1, ResidentID = 1, Date = DateTime.UtcNow, AmountDue = 200, AmountPaid = 100 }
+                );
+            }
+
+            if (!this.EventSchedules.Any())
+            {
+                // Seed EventSchedules
+                this.EventSchedules.AddRange(
+                    new EventSchedule { EventEventScheduleId = 1, EmployeeID = 1, ServiceID = 1, RangeOfHours = "9AM-5PM" }
+                );
+            }
+
+            // Save all changes to the database
+            this.SaveChanges();
+        }
+
+    }
+    public class DbInitializer
+    {
+        private readonly ModelBuilder modelBuilder;
+
+        public DbInitializer(ModelBuilder modelBuilder)
+        {
+            this.modelBuilder = modelBuilder;
+        }
+
+        public void Seed()
+        {
             modelBuilder.Entity<Organization>().HasData(
-                new Organization { OrganizationId = 1 },
-                new Organization { OrganizationId = 2 }
-            );
+                    new Organization { OrganizationId = 1 },
+                    new Organization { OrganizationId = 2 }
+                );
 
             // Seed Employees
             modelBuilder.Entity<Employee>().HasData(
@@ -95,4 +173,8 @@ namespace DatabaseLayer
             );
         }
     }
+
+
 }
+
+// proteced override voide Seed()

@@ -1,0 +1,15 @@
+/Users/yueyu/database/DatabaseLayer/bin/Debug/net8.0/DatabaseLayer.deps.json
+/Users/yueyu/database/DatabaseLayer/bin/Debug/net8.0/DatabaseLayer.runtimeconfig.json
+/Users/yueyu/database/DatabaseLayer/bin/Debug/net8.0/DatabaseLayer.dll
+/Users/yueyu/database/DatabaseLayer/bin/Debug/net8.0/DatabaseLayer.pdb
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.csproj.AssemblyReference.cache
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.AssemblyInfoInputs.cache
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.AssemblyInfo.cs
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.csproj.CoreCompileInputs.cache
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.sourcelink.json
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.dll
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/refint/DatabaseLayer.dll
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.pdb
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/DatabaseLayer.genruntimeconfig.cache
+/Users/yueyu/database/DatabaseLayer/obj/Debug/net8.0/ref/DatabaseLayer.dll
