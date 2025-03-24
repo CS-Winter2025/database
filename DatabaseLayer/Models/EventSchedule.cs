@@ -5,10 +5,10 @@ public class EventSchedule : ScheduleBase
     
     public int EventScheduleId { get; set; }
     public int EmployeeID { get; set; } // Foreign Key (Stored in DB)
-    public Employee Employee { get; set; } // Navigation Property (Not stored)
+    public Employee? Employee { get; set; } // Navigation Property (Not stored)
 
     public int? ServiceID { get; set; } // Foreign Key (Stored in DB)
-    public Service Service { get; set; } // Navigation Property (Not stored)
+    public Service? Service { get; set; } // Navigation Property (Not stored)
 
     // public DateTime StartDate { get; set; }
     // public DateTime EndDate { get; set; }
