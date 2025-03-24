@@ -119,7 +119,7 @@ namespace DatabaseLayer
             {
                 // Seed EventSchedules
                 this.EventSchedules.AddRange(
-                    new EventSchedule { EventEventScheduleId = 1, EmployeeID = 1, ServiceID = 1, RangeOfHours = "9AM-5PM" }
+                    new EventSchedule { EventScheduleId = 1, EmployeeID = 1, ServiceID = 1, RangeOfHours = "9AM-5PM" }
                 );
             }
 
@@ -169,7 +169,7 @@ namespace DatabaseLayer
 
             // Seed EventSchedules
             modelBuilder.Entity<EventSchedule>().HasData(
-                new EventSchedule { EventEventScheduleId = 1, EmployeeID = 1, ServiceID = 1, RangeOfHours = "9AM-5PM" }
+                new EventSchedule { EventScheduleId = 1, EmployeeID = 1, ServiceID = 1, RangeOfHours = "9AM-5PM" }
             );
         }
     }
