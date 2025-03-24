@@ -84,8 +84,8 @@ namespace DatabaseLayer
             {
                 // Seed Employees
                 this.Employees.AddRange(
-                    new Employee { EmployeeId = 1, Name = "Alice", JobTitle = "Manager", EmploymentType = "Full-Time", PayRate = 60000, OrganizationId = 1 },
-                    new Employee { EmployeeId = 2, Name = "Bob", JobTitle = "Developer", EmploymentType = "Full-Time", PayRate = 50000, OrganizationId = 1, ManagerId = 1 }
+                    new Employee { EmployeeId = 1, Name = "Alice", JobTitle = "Manager", EmploymentType = "Full-Time", PayRate = 60000, OrganizationId = 1, Organization = new Organization { OrganizationId = 1 } },
+                new Employee { EmployeeId = 2, Name = "Bob", JobTitle = "Developer", EmploymentType = "Full-Time", PayRate = 50000, OrganizationId = 1, ManagerId = 1, Organization = new Organization { OrganizationId = 1 } }
                 );
             }
 
@@ -146,8 +146,8 @@ namespace DatabaseLayer
 
             // Seed Employees
             modelBuilder.Entity<Employee>().HasData(
-                new Employee { EmployeeId = 1, Name = "Alice", JobTitle = "Manager", EmploymentType = "Full-Time", PayRate = 60000, OrganizationId = 1 },
-                new Employee { EmployeeId = 2, Name = "Bob", JobTitle = "Developer", EmploymentType = "Full-Time", PayRate = 50000, OrganizationId = 1, ManagerId = 1 }
+                new Employee { EmployeeId = 1, Name = "Alice", JobTitle = "Manager", EmploymentType = "Full-Time", PayRate = 60000, OrganizationId = 1, Organization = new Organization { OrganizationId = 1 } },
+                new Employee { EmployeeId = 2, Name = "Bob", JobTitle = "Developer", EmploymentType = "Full-Time", PayRate = 50000, OrganizationId = 1, ManagerId = 1, Organization = new Organization { OrganizationId = 1 } }
             );
 
             // Seed Residents

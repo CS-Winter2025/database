@@ -12,8 +12,8 @@ public class Employee : Person
 
     public ICollection<Employee> Subordinates { get; set; } = new List<Employee>();  // Navigation Property (Not stored)
 
-    public string JobTitle { get; set; }
-    public string EmploymentType { get; set; }
+    public required string JobTitle { get; set; }
+    public required string EmploymentType { get; set; }
     public decimal PayRate { get; set; }
 
     public List<int> Availability { get; set; } = new List<int>();
@@ -21,7 +21,7 @@ public class Employee : Person
     public List<string> Certifications { get; set; } = new List<string>();
 
     public int OrganizationId { get; set; }  // Foreign Key (Stored in DB)
-    public Organization Organization { get; set; }  // Navigation Property (Not stored)
+    public required Organization Organization { get; set; }  // Navigation Property (Not stored)
 
     // Navigation property for Services associated with this employee
     public List<Service> Services { get; set; } = new List<Service>();
