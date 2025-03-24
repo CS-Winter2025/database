@@ -8,7 +8,7 @@ public class Employee : Person
     public int EmployeeId { get; set; } // Primary Key
 
     public int? ManagerId { get; set; }  // Foreign Key (Stored in DB)
-    public Employee Manager { get; set; }  // Navigation Property (Not stored, for C# usage)
+    public Employee? Manager { get; set; }  // Navigation Property (Not stored, for C# usage)
 
     public ICollection<Employee> Subordinates { get; set; } = new List<Employee>();  // Navigation Property (Not stored)
 
