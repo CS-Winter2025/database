@@ -12,6 +12,6 @@ public class EventSchedule : ScheduleBase
 
     // public DateTime StartDate { get; set; }
     // public DateTime EndDate { get; set; }
-    public string RangeOfHours { get; set; }
+    public required string RangeOfHours { get; set; }
     // public string? RepeatPattern { get; set; }
 }
