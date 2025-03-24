@@ -177,4 +177,4 @@ namespace DatabaseLayer
 
 }
 
-// proteced override voide Seed()
+// protected override voide Seed()
